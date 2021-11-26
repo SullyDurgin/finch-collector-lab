@@ -11,6 +11,8 @@ html {
   box-sizing: inherit;
 }
 
+/* resets font size to be 62.5% of the user preference - 
+     in most browser configurations this will be 10px */
 :root {
     font-size: 62.5%
 }
@@ -20,14 +22,33 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  border: double goldenrod;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  --nav-bg: rgba(104, 197, 248, .7);
+  --nav-bg-ff: rgba(104, 197, 248, .9);
+  --borders: rgb(170, 107, 14) solid 2px;
+  --text-color: rgb(17, 20, 17);
+  --link-hover-color: rgb(156, 117, 7);
+  --button-bg: rgb(245, 245, 245);
+  --button-bg-hover: rgb(226, 226, 226);
+  --submit: rgb(26, 128, 0);
+  --warn: rgb(255, 102, 0);
+  --danger: rgb(220, 20, 30);
+  --secondary: rgb(57, 57, 57);
+  --card-box-shadow: 5px 5px 6px -1px #AAA;
+  --font-xtreme: 4.2rem;
+  --font-xxl: 3.6rem;
+  --font-xl: 2.4rem;
+  --font-l: 1.8rem;
+  --font-reg: 1.6rem;
+  --card-border-radius: 6px;
 }
 
 header {
   width: 100%;
   background: var(--nav-bg-ff);
-  
+  border-bottom: var(--borders);
 }
 
 nav {
@@ -84,13 +105,12 @@ nav li {
 
 .btn {
   font-size: var(--font-l);
-  padding: 8px 16px;
-  border-radius: 6px;
   border-width: 2px;
   border-style: solid;
   text-decoration: none;
   background-color: var(--button-bg);
   font-weight: 600;
+  cursor: pointer;
   font-family: inherit;
   margin-right: 10px;
 }
@@ -205,26 +225,15 @@ nav li {
     max-width: 1920px;
     top: 20px;
     background-color: transparent;
+    border-bottom: none;
   }
 
   nav,
   .header-logo-container {
-    margin: 0;
-    background: var(--nav-bg-ff);
-    border: var(--borders);
-    border-radius: 18px;
+   eft: auto;
   }
 
-  nav {
-    margin-left: auto;
-  }
 
-  .header-logo-container {
-    /* visual fix to help align logo */
-    padding-top: 6px;
-    width: 256px;
-    height: 35px;
-  }
 
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     header {
@@ -232,10 +241,12 @@ nav li {
       backdrop-filter: none;
     }
 
+  
     nav,
     .header-logo-container {
-      background: rgba(118, 122, 77, 0.6);
-      
+      background: goldenrod;
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
     }
   }
 }

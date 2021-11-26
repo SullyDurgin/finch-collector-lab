@@ -12,10 +12,13 @@
 		{% block head %} {% endblock %}
 	</head>
 	<body>
-		<header>
+			<header>
 			<div class="header-logo-container">
-				<a href="/">
-					<img src="" alt="The finch Collector Logo" />
+				<a href="{% url 'home' %}">
+					<img
+						src="{% static 'images/finch-logo.svg' %}"
+						alt="The Finch Collector Logo" class="finch-logo"
+					/>
 				</a>
 			</div>
 			<nav>
